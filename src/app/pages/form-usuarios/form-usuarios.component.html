@@ -1,0 +1,80 @@
+<div class="page-wrapper p-t-45 p-b-50">
+  <div class="wrapper wrapper--w790">
+    <div class="card card-5">
+      <div class="card-heading">
+        <h2 class="title">Cadastro de Usuários</h2>
+      </div>
+      <div class="card-body">
+        <form #formulario="ngForm">
+          <div class="form-row m-b-55">
+            <div class="name">Nome</div>
+            <div class="value">
+              <div class="row row-space">
+                <div class="col-12">
+                  <div class="input-group-desc">
+                    <input #nome="ngModel" required pattern="^[a-zA-ZáàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ ]*$"
+                      class="input--style-5" type="text" [(ngModel)]="usuario.nome" name="nome" />
+                    <label *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="label--desc" color="danger">Nome
+                      é obrigatório. Não são permitidos números ou caracteres especiais.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row m-b-55">
+            <div class="name">Email</div>
+            <div class="value">
+              <div class="row row-space">
+                <div class="col-12">
+                  <div class="input-group-desc">
+                    <input #email="ngModel" required
+                      pattern="^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$"
+                      class="input--style-5" type="text" [(ngModel)]="usuario.email" name="email" />
+                    <label *ngIf="email.invalid && (email.dirty || email.touched)" class="label--desc"
+                      color="danger">Email
+                      é obrigatório.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-row m-b-55">
+            <div class="name">Telefone</div>
+            <div class="value">
+              <div class="row row-refine">
+                <div class="col-12">
+                  <div class="input-group-desc">
+                    <input #telefone="ngModel" required mask="(00) 00000-0000" [clearIfNotMatch]="true"
+                      class="input--style-5" type="text" [(ngModel)]="usuario.telefone" name="phone" />
+                    <label *ngIf="telefone.invalid && (telefone.dirty || telefone.touched)" class="label--desc"
+                      color="danger">Telefone é obrigatório.</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <input [disabled]="formulario.invalid" type="button" (click)="salvar()" class="btn btn--radius-2 btn--red"
+              value="Salvar" />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #templateModal>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">{{ tituloModal }}</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    {{ textoModal }}
+  </div>
+  <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modalRef.hide()">Ok</button>
+    </div>
+</ng-template>
