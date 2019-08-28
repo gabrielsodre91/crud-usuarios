@@ -6,7 +6,7 @@ CRUD de Usuários básico usando Angular 7, Bootstrap 4, PHP 7 e SQLite 3
 
 Após clonar o projeto, copie a pasta 'API_PHP' para pasta padrão do seu Apache. Execute `composer install` para instalar as dependências do projeto PHP.
 
-Volte para a pasta inicial do projeto Angular. Execute `nmp install` para instalar as dependências do projeto Angular.
+Volte para a pasta inicial do projeto Angular. Execute `npm install` para instalar as dependências do projeto Angular.
 
 O arquivo `Enviroment` do Angular está, por padrão, apontando para 'http://localhost/crud-usuarios/'. Mude, se necessário.
 
